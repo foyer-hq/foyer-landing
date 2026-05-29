@@ -16,7 +16,7 @@ export default function Scene() {
   return (
     <div className="fixed inset-0 w-full h-full z-0 pointer-events-none overflow-hidden bg-background">
       <Canvas
-        camera={{ position: [0, 0, 5], fov: 60 }}
+        camera={{ position: [0, 0, 8], fov: 38 }}
         frameloop={isCanvasActive ? 'always' : 'demand'}
         gl={{ antialias: true, alpha: false, powerPreference: 'high-performance' }}
       >
@@ -28,7 +28,7 @@ export default function Scene() {
           <Particles />
 
           {/* Render ticket in the hero scroll phase (scrolled less than 50%) */}
-          {scrollProgress <= 0.5 && <FloatingTicket />}
+          {scrollProgress <= 0.5 && <FloatingTicket scrollProgress={scrollProgress} />}
         </Suspense>
       </Canvas>
     </div>
