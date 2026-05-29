@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #01151f;
+  --surface: #022130;
+  --gold: #F0F3BD;
+  --violet: #02C39A;
+  --text-primary: #ffffff;
+  --text-muted: #9abccf;
+  --border: rgba(2, 195, 154, 0.2);
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    background-color: var(--background);
+    color: var(--text-primary);
+    font-family: var(--font-inter), sans-serif;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* Custom Scrollbar for Webkit Browsers */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--violet);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--gold);
+  }
+
+  /* Hide default scrollbars for Firefox and IE while maintaining scroll */
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--violet) transparent;
+  }
+}
+
+@layer utilities {
+  /* Class to hide scrollbar while keeping scroll functionality */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  /* Glassmorphism utility */
+  .glassmorphism {
+    background: rgba(2, 33, 48, 0.8);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Premium Gradient Utilities matching the Turquoise Harmony theme */
+  .text-gradient {
+    background: linear-gradient(135deg, var(--violet) 0%, var(--gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .btn-gradient {
+    background: linear-gradient(135deg, var(--violet) 0%, var(--gold) 100%);
+    background-size: 150% 150%;
+    transition: all 0.4s ease-out;
+  }
+  .btn-gradient:hover {
+    background-position: right center;
+    transform: translateY(-2px);
+  }
+}
